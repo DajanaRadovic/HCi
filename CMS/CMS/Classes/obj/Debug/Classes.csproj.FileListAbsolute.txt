@@ -1,0 +1,15 @@
+D:\Content Management System\CMS\Classes\bin\Debug\Classes.exe.config
+D:\Content Management System\CMS\Classes\bin\Debug\Classes.exe
+D:\Content Management System\CMS\Classes\bin\Debug\Classes.pdb
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.csproj.AssemblyReference.cache
+D:\Content Management System\CMS\Classes\obj\Debug\MainWindow.g.cs
+D:\Content Management System\CMS\Classes\obj\Debug\App.g.cs
+D:\Content Management System\CMS\Classes\obj\Debug\Classes_MarkupCompile.cache
+D:\Content Management System\CMS\Classes\obj\Debug\Classes_MarkupCompile.lref
+D:\Content Management System\CMS\Classes\obj\Debug\MainWindow.baml
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.g.resources
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.Properties.Resources.resources
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.csproj.GenerateResource.cache
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.csproj.CoreCompileInputs.cache
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.exe
+D:\Content Management System\CMS\Classes\obj\Debug\Classes.pdb

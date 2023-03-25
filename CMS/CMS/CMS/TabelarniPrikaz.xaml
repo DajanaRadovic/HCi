@@ -1,0 +1,78 @@
+﻿<Window x:Class="CMS.TabelarniPrikaz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CMS"
+        mc:Ignorable="d"
+        Title="TabelarniPrikaz" Height="550" Width="700" Closing="save">
+    <Window.Background>
+        <ImageBrush ImageSource="prsten.jpg"/>
+    </Window.Background>
+    <Grid>
+        <TextBlock Text="PRIKAZIVANJE PRSTENOVA" Margin="0 10 0 400" FontSize="22" FontFamily="Times New Roman" VerticalAlignment="Center" HorizontalAlignment="Center" Height="69" Width="324"/>
+        <DataGrid x:Name="Prikaz" ItemsSource="{Binding Prstenovi}" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="695"  SelectionMode="Single" Opacity="1" Background="{x:Null}" Margin="0 100 0 0" IsReadOnly="True">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFEDD3D3"/>
+                           <!-- <Setter Property="Foreground" Value="Black" />-->
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="50">
+                                <CheckBox x:Name="CheckBoxBrisanje" IsChecked="False"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Height="50" Width="120">
+                                <Label Height="25" Margin="20 10 20 0" Name="label1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Hyperlink Click="Hyperlink_Click_1">Clik!
+                                    </Hyperlink>
+                                </Label>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Slika}" Stretch="UniformToFill" Height="40" Width ="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel  Height="50" Width="150">
+                                <Label Height="25" Margin="20 10 20 0" Name="label1">
+                                    <TextBlock Text="{Binding Datum}" TextWrapping="Wrap"/>
+                                </Label>
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="DugmeZaDodavanje" Click="DugmeZaDodavanje_Click" Content="Dodaj" Width="70" Height="50" Margin="241,429,36.2,33"/>
+        <Button x:Name="DugmeZaIzlaz" Click="DugmeZaIzlaz_Click"  Content="Izlaz" Width="70" Height="50" Margin="136,429,141.2,33"/>
+        <Button x:Name="DugmeZaBrisanje" Click="DugmeZaBrisanje_Click"  Content="Obrisi" Width="70" Height="50" Margin="38,429,239.2,33"/>
+    </Grid>
+</Window>
