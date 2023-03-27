@@ -17,7 +17,6 @@
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Background" Value="#FFEDD3D3"/>
-                           <!-- <Setter Property="Foreground" Value="Black" />-->
                             <Setter Property="BorderBrush" Value="White"/>
                         </Trigger>
                     </Style.Triggers>
@@ -72,8 +71,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="DugmeZaDodavanje" Click="DugmeZaDodavanje_Click" Content="Dodaj" Width="70" Height="50" Margin="241,429,36.2,33"/>
+        <Button x:Name="DugmeZaDodavanje" Click="DugmeZaDodavanje_Click" Content="Dodaj" Width="70" Height="50" Margin="241,429,36.2,33" Loaded="DugmeZaDodavanje_Loaded"/>
         <Button x:Name="DugmeZaIzlaz" Click="DugmeZaIzlaz_Click"  Content="Izlaz" Width="70" Height="50" Margin="136,429,141.2,33"/>
-        <Button x:Name="DugmeZaBrisanje" Click="DugmeZaBrisanje_Click"  Content="Obrisi" Width="70" Height="50" Margin="38,429,239.2,33"/>
+        <Button x:Name="DugmeZaBrisanje" Click="DugmeZaBrisanje_Click"  Content="Obrisi" Width="70" Height="50" Margin="38,429,239.2,33" Loaded="DugmeZaBrisanje_Loaded"/>
     </Grid>
 </Window>

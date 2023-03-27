@@ -95,11 +95,7 @@ namespace CMS
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-           /* string admin = "admin";
-            string password = "admin";
-
-            string korisnik = "Dajana";
-            string sifra = "Radovic";*/
+          
             if (validate())
             {
                 if (TextBoxUserName.Text == LogIn.Admin && BoxPassword.Password == LogIn.Password)
@@ -120,33 +116,7 @@ namespace CMS
                 {
                     MessageBox.Show("Pogresno korisnicko ime ili lozinka. Pokusajte ponovo");
                 }
-                /*
-                if (TextBoxUserName.Text == LogIn.Admin && BoxPassword.Password == LogIn.Password)
-                {
-
-                    //  Console.WriteLine("Admin se uspesno ulogovao");
-                    TabelarniPrikaz tabelarniPrikaz = new TabelarniPrikaz();
-                    tabelarniPrikaz.ShowDialog();
-
-
-                }
-                else if (TextBoxUserName.Text == LogIn.Korisnik && BoxPassword.Password == LogIn.Sifra)
-                {
-                    //Console.WriteLine("Korisnik se uspesno ulogovao");
-                    TabelarniPrikaz tabelarniPrikaz = new TabelarniPrikaz();
-                    tabelarniPrikaz.ShowDialog();
-
-                }
-                else {
-                    MessageBox.Show("Pogresno korisnicko ime ili lozinka. Pokusajte ponovo");
-                }
-
-               // this.Close();
-
-            }
-            else
-            {
-                MessageBox.Show("Polja nisu dobro popunjena!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);*/
+               
             }
            
 
@@ -163,6 +133,7 @@ namespace CMS
             {
                 result = false;
                 labelaUserGreska.Content = "Popunite polje!";
+                labelaUserGreska.Foreground = Brushes.Red;
                 TextBoxUserName.BorderBrush = Brushes.Red;
 
             }
@@ -175,6 +146,7 @@ namespace CMS
             {
                 result = false;
                 labelaPasswordGreska.Content = "Popunite polje!";
+                labelaPasswordGreska.Foreground = Brushes.Red;
                 BoxPassword.BorderBrush = Brushes.Red;
             }
             else {

@@ -10,10 +10,6 @@
         <ImageBrush ImageSource="prsten.jpg"/>
     </Window.Background>
 
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"/>
-        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed"/>
-    </Window.CommandBindings>
     <Grid Margin="26,10,24.6,10" Background="#7F294B48">
         <Grid.RowDefinitions>
             <RowDefinition Height="352*"/>
@@ -26,8 +22,7 @@
         <Label x:Name="labelMetal" Content="METAL:" HorizontalAlignment="Left" Height="28" Margin="0,75,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
         <ComboBox x:Name="comboBoxMetal" Margin="50,75,464,244"/>
         <Label x:Name="labelaMetalGreska" Content="" Width="229" Margin="50,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
-       <!-- <Label x:Name="labelDatum" Content="DATUM:" HorizontalAlignment="Left" Height="28" Margin="413,198,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Height="28" Margin="503,204,0,0" VerticalAlignment="Top" Width="116" />-->
+
         <Label x:Name="labelBoja" Content="BOJA:" HorizontalAlignment="Left" Height="28" Margin="0,140,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
         <ComboBox x:Name="comboBoxBoja" Margin="50,140,464,181">
             <ComboBox.Background>
@@ -47,7 +42,7 @@
         <Label x:Name="labelaOblikKamenaGreska" Content="" Width="229" Margin="0,38,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10"/>
 
         <Label x:Name="labelCena" Content="CENA:" HorizontalAlignment="Left" Height="28" Margin="418,65,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
-     
+
         <ComboBox x:Name="ComboBoxCena" Margin="503,65,11,259" Height="28" Width="229"/>
         <Label x:Name="labelSlika" Content="SLIKA:" HorizontalAlignment="Right" Height="28" Margin="0,143,209,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
         <Button x:Name="buttonSlika" Content = "UBACI:" Width="70" Height="30" Margin="503,151,170,171" Click="buttonSlika_Click" />
@@ -59,22 +54,14 @@
         <Label x:Name="labelaBrendGreska" Content="" Width="129" Margin="0,197,330,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10"/>
         <Label x:Name="Opis" Content="OPIS:"  HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="74" FontWeight="Bold"/>
         <Label x:Name="labelaSlikaGreska" Content="" Width="229" Margin="0,203,17,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10" RenderTransformOrigin="0.501,0.5"/>
+        <Label x:Name="labelaRtbGreska" Content="" Width="229" Margin="0,29,330,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10" RenderTransformOrigin="0.501,0.5" Grid.Row="1"/>
+
 
 
         <Canvas Width="230" Height="200" Margin="49,256,466,44.8" Grid.RowSpan="2">
             <DockPanel Width="421" Height="234" Grid.RowSpan="2" Canvas.Left="-38" Canvas.Top="-22">
                 <ToolBar Width="388" Background="Transparent" Margin="0,10,0,176.6" RenderTransformOrigin="0.5,0.5">
-                    <Button x:Name="buttonOpen" BorderBrush="Transparent" Command="ApplicationCommands.Open" Content="" Height="20" Width="20" Canvas.Left="10" Canvas.Top="-22">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Images/open.png" Stretch="UniformToFill"/>
-                        </Button.Background>
-                    </Button>
-                    <Button x:Name="buttonSave" BorderBrush="Transparent" Command="ApplicationCommands.Save" Content="" Height="20" Width="20" RenderTransformOrigin="1.68,0.3" Margin="10 0 0 0">
-                        <Button.Background>
-                            <ImageBrush ImageSource="Images/save.png"/>
-                        </Button.Background>
 
-                    </Button>
                     <ToggleButton Command="EditingCommands.ToggleBold" x:Name="btnBold" Content="" FontSize="20" Height="20" Margin="0,-3,0,4.8" Width="40" Checked="btnBold_Checked" Foreground="Black">
                         <ToggleButton.Background>
                             <ImageBrush ImageSource="Images/bold.png" Opacity="0.5" Stretch="Uniform"/>
@@ -97,7 +84,7 @@
                     </ComboBox>
                     <Button x:Name="btnColor" Content="A" Click="btnColor_Click" Width="20" Height="25" RenderTransformOrigin="-0.914,-0.855" Margin="10,0,0,7.4" FontWeight="Bold" Background="Gray"/>
                 </ToolBar>
-                <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" Background="Transparent" BorderBrush="{x:Null}" CaretBrush="White" Width="353"  Margin="-360,62,25,99.6"/>
+                <RichTextBox x:Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged" Background="Transparent" BorderBrush="{x:Null}" CaretBrush="White" Width="342"  Margin="-340,62,25,99.6"/>
 
             </DockPanel>
             <StatusBar x:Name="stbStatus" Height="33" Canvas.Left="51" Canvas.Top="157" Width="60">

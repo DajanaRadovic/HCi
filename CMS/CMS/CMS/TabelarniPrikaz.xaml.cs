@@ -50,21 +50,17 @@ namespace CMS
           
 
         }
-
+        
         private void DugmeZaDodavanje_Click(object sender, RoutedEventArgs e)
         {
            
             if (LogIn.TipKorisnika.Equals(LogIn.Admin))
             {
+               
                 FormaWindow formaWindow = new FormaWindow();
                 formaWindow.ShowDialog();
             }
-            else {
-                FormaWindow formaWindow = new FormaWindow();
-                formaWindow.IsEnabled = false;
-            }
-            //IzmjenaWindow izmena = new IzmjenaWindow();
-            //izmena.ShowDialog();
+            
         }
 
        
@@ -76,55 +72,15 @@ namespace CMS
 
         private void DugmeZaBrisanje_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Prsten p in selected) {
-                Prstenovi.Remove(p);
-            }
-          
             
-
-            /*  List<Prsten> Selected = new List<Prsten>();
-             Console.WriteLine("Broj prstenova u listi prije cekiranja:{0}", Prstenovi.Count());
-             for (int i = 0; i < Prikaz.SelectedItems.Count; i++)
-              {
-
-                  Selected.Add((Prsten)Prikaz.SelectedItems[i]);
-                 Console.WriteLine("Cekirano je:{0}", Prstenovi.Count);
-                 Prstenovi.RemoveAt(i);
-
-
-                 Console.WriteLine("Obrisano je:{0}", Prstenovi.Count);
-
-              }
-
-
-             //var pom = Prikaz.ItemsSource as List<Prsten>;
-               foreach (var item in Selected)
-               {
-                   Prstenovi.Remove(item);
-
-                  Console.WriteLine("Kraaaj:{0}", Prstenovi.Count);
-
-               }*/
-
-            // Prikaz.Items.Refresh();
-
-
-            /* List<Prsten> selected = new List<Prsten>();
-             var checkedData = Prstenovi.Where(d => d.isChecked == true);
-
-             foreach (Prsten p in checkedData) {
-                 selected.Add(p);
-             }
-             foreach (Prsten p in selected) {
-                 Prstenovi.Remove(p);
-             }*/
-
-
-
-
-
-
-
+                foreach (Prsten p in selected)
+                {
+                    Prstenovi.Remove(p);
+                }
+                 if (selected.Count == 0) {
+                     System.Windows.MessageBox.Show("Nemate cekiran nijedan element za brisanje");
+                 }
+            
         }
 
 
@@ -170,15 +126,27 @@ namespace CMS
             else {
                 selected.Remove(novi);
             }
-                
+           
 
         }
 
         private void CheckBoxBrisanje_Unchecked(object sender, RoutedEventArgs e)
         {
+        }
 
+        private void DugmeZaDodavanje_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!LogIn.TipKorisnika.Equals(LogIn.Admin)) {
+                DugmeZaDodavanje.Visibility = Visibility.Collapsed;
+            }
+        }
 
-
+        private void DugmeZaBrisanje_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!LogIn.TipKorisnika.Equals(LogIn.Admin))
+            {
+                DugmeZaBrisanje.Visibility = Visibility.Collapsed;
+            }
         }
     }   
 }

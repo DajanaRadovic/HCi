@@ -61,22 +61,18 @@ namespace CMS
             textBoxId.Text = Convert.ToString(prsten.Id);
             comboBoxMetal.SelectedValue = prsten.Metal;
             comboBoxBoja.SelectedValue = prsten.Boja;
-           // DatePicker.SelectedDate = prsten.Datum;
             comboBoxOblikKamena.SelectedValue = prsten.Oblik;
             ComboBoxCena.SelectedValue = prsten.Cena;
             image.Source = new BitmapImage(new Uri(prsten.Slika));
             textBoxBrend.Text = prsten.Brend;
             ComboBoxCena.SelectedValue = prsten.Cena;
-            /*string opisText = prsten.Opis;
-            TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-            range.Text = opisText;*/
-
+           
+        
             FileStream fileStream = new FileStream(prsten.Opis, FileMode.Open);
             TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
             range.Load(fileStream, System.Windows.DataFormats.Rtf);
             fileStream.Close();
-
-
+            
         }
 
         private bool validate()
@@ -86,6 +82,7 @@ namespace CMS
             {
                 result = false;
                 labelaIdGreska.Content = "Polje ne smije da bude prazno!";
+                labelaIdGreska.Foreground = Brushes.Red;
                 textBoxId.BorderBrush = Brushes.Red;
             }
             else
@@ -115,6 +112,7 @@ namespace CMS
             {
                 result = false;
                 labelaSlikaGreska.Content = "Dodajte sliku!";
+                labelaSlikaGreska.Foreground = Brushes.Red;
                 buttonSlika.BorderBrush = Brushes.Red;
             }
             else
@@ -127,6 +125,7 @@ namespace CMS
             {
                 result = false;
                 labelaMetalGreska.Content = "Mora biti odabrana opcija!";
+                labelaMetalGreska.Foreground = Brushes.Red;
                 comboBoxMetal.BorderThickness = new Thickness(1);
                 comboBoxMetal.BorderBrush = Brushes.Red;
             }
@@ -140,6 +139,7 @@ namespace CMS
             {
                 result = false;
                 labelaBojaGreska.Content = "Mora biti odabrana opcija!";
+                labelaBojaGreska.Foreground = Brushes.Red;
                 comboBoxBoja.BorderThickness = new Thickness(1);
                 comboBoxBoja.BorderBrush = Brushes.Red;
             }
@@ -148,24 +148,12 @@ namespace CMS
                 labelaBojaGreska.Content = "";
                 comboBoxBoja.BorderBrush = Brushes.Gray;
             }
-            /*
-            if (DatePicker.SelectedDate == null)
-            {
-                result = false;
-                labelaDateGreska.Content = "Mora biti odabran datum!";
-                DatePicker.BorderThickness = new Thickness(1);
-                DatePicker.BorderBrush = Brushes.Red;
-            }
-            else
-            {
-                labelaDateGreska.Content = "";
-                DatePicker.BorderBrush = Brushes.Gray;
-            */
-
+           
             if (comboBoxOblikKamena.SelectedItem == null)
             {
                 result = false;
                 labelaOblikKamenaGreska.Content = "Mora biti odabrana opcija!";
+                labelaOblikKamenaGreska.Foreground = Brushes.Red;
                 comboBoxOblikKamena.BorderThickness = new Thickness(1);
                 comboBoxOblikKamena.BorderBrush = Brushes.Red;
             }
@@ -174,11 +162,25 @@ namespace CMS
                 labelaOblikKamenaGreska.Content = "";
                 comboBoxOblikKamena.BorderBrush = Brushes.Gray;
             }
+            TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            if (range.Text.Trim().Length == 0)
+            {
+                result = false;
+                rtbEditor.BorderBrush = Brushes.Red;
+                labelaRtbGreska.Content = "Popunite polje!";
+                labelaRtbGreska.Foreground = Brushes.Red;
+            }
+            else
+            {
+                labelaRtbGreska.Content = "";
+                rtbEditor.BorderBrush = Brushes.Gray;
+            }
 
             if (ComboBoxCena.SelectedItem == null)
             {
                 result = false;
                 labelaCenaGreska.Content = "Mora biti odabrana opcija!";
+                labelaCenaGreska.Foreground = Brushes.Red;
                 ComboBoxCena.BorderThickness = new Thickness(1);
                 ComboBoxCena.BorderBrush = Brushes.Red;
             }
@@ -221,6 +223,11 @@ namespace CMS
                 }
                 else {
 
+                    string fileName = "dajana" + textBoxId.Text + ".rtf";
+                    FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                    TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                    range.Save(fileStream, System.Windows.DataFormats.Rtf);
+                    fileStream.Close();
                     TabelarniPrikaz.Prstenovi.Insert(index, stari);
                 }
             }
@@ -387,8 +394,6 @@ namespace CMS
 
                 }
 
-
-
             }
 
         }
@@ -414,82 +419,6 @@ namespace CMS
 
             }
         }
-
-        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (wordNumber == 0 && changed == false)
-            {
-                OpenFileDialog dlg = new OpenFileDialog();
-                dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-                if (dlg.ShowDialog() == true)
-                {
-                    FileStream fileStream = new FileStream(dlg.FileName, FileMode.Open);
-                    TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                    range.Load(fileStream, System.Windows.DataFormats.Rtf);
-                    fileStream.Close();
-                    changed = false;
-                }
-            }
-            else
-            {
-                var result = System.Windows.MessageBox.Show("Do you want to save?", "Mini Text Editor", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (result == MessageBoxResult.Yes)
-                {
-                    Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                    dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-                    if (dlg.ShowDialog() == true)
-                    {
-                        FileStream fileStream = new FileStream(dlg.FileName, FileMode.Create);
-                        TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                        range.Save(fileStream, System.Windows.DataFormats.Rtf);
-                        fileStream.Close();
-                    }
-
-                    OpenFileDialog dlg1 = new OpenFileDialog();
-                    dlg1.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-                    if (dlg1.ShowDialog() == true)
-                    {
-                        FileStream fileStream = new FileStream(dlg1.FileName, FileMode.Open);
-                        TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                        range.Load(fileStream, System.Windows.DataFormats.Rtf);
-                        fileStream.Close();
-                        WordNumber.Text = "0";
-                        wordNumber = 0;
-                        changed = false;
-                    }
-                }
-                else if (result == MessageBoxResult.No)
-                {
-                    OpenFileDialog dlg1 = new OpenFileDialog();
-                    dlg1.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-                    if (dlg1.ShowDialog() == true)
-                    {
-                        FileStream fileStream = new FileStream(dlg1.FileName, FileMode.Open);
-                        TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                        range.Load(fileStream, System.Windows.DataFormats.Rtf);
-                        fileStream.Close();
-                        WordNumber.Text = "0";
-                        wordNumber = 0;
-                        changed = false;
-                    }
-                }
-            }
-        }
-        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-            if (dlg.ShowDialog() == true)
-            {
-                FileStream FileStream = new FileStream(dlg.FileName, FileMode.Create);
-                TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                range.Save(FileStream, System.Windows.DataFormats.Rtf);
-                FileStream.Close();
-                changed = false;
-            }
-        }
-
       
     }
 }

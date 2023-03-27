@@ -14,7 +14,7 @@
     <Grid Height="350" Width="300" Margin="0,40,410,40" Background="#7F000000">
 
         <Image Margin="10,10,10,280" Source="log1.jpg" Height="60"/>
-        <TextBlock HorizontalAlignment="Center" Text="Log in" FontWeight="Bold" FontSize="20" Margin="10,75,0,250" Width="70"/>
+        <TextBlock HorizontalAlignment="Center" Text="Log in" FontWeight="Bold" FontSize="18" Margin="120,75,110,242" Width="70"/>
         <TextBlock HorizontalAlignment="Center" Text="User name:" FontSize="12" Margin="50,117,181,217" Width="69"/>
         <TextBox x:Name="TextBoxUserName" Width="200" Height="30" Margin="50,138,50,182" TextWrapping="Wrap" Text="" GotFocus="TextBoxUserName_GotFocus" LostFocus="TextBoxUserName_LostFocus"/>
         <Label x:Name="labelaUserGreska" Content="" Width="200" Margin="50,168,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="26" FontSize="10"/>
@@ -22,7 +22,7 @@
         <PasswordBox x:Name="BoxPassword" Width="200" Height="30" Margin="50,212,50,108" GotFocus="BoxPassword_GotFocus" LostFocus="BoxPassword_LostFocus"/>
         <Label x:Name="labelaPasswordGreska" Content="" Width="200" Margin="50,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="28"/>
         <Button x:Name="ButtonLogIn" Margin="61,280,169,30" Width="70" Height="40" Content="LOG IN" Background ="LightGray" Click="ButtonLogIn_Click"/>
-        <Button x:Name="ButtonIzlaz" Margin="161,280,69,30" Width="70" Height="40" Content="IZLAZ" Background ="LightGray" Click="ButtonIzlaz_Click"/>
+        <Button x:Name="ButtonIzlaz" Margin="161,280,69,30" Width="70" Height="40" Content="EXIT" Background ="LightGray" Click="ButtonIzlaz_Click"/>
 
     </Grid>
 
