@@ -27,9 +27,9 @@
         <Label x:Name="labelMetal" Content="METAL:" HorizontalAlignment="Left" Height="28" Margin="0,75,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
         <ComboBox x:Name="comboBoxMetal" Margin="50,75,464,244"/>
         <Label x:Name="labelaMetalGreska" Content="" Width="229" Margin="50,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
-        <Label x:Name="labelDatum" Content="DATUM:" HorizontalAlignment="Left" Height="28" Margin="413,198,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Height="28" Margin="503,204,0,0" VerticalAlignment="Top" Width="116" />
-        <Label x:Name="labelaDateGreska" Content="" Width="229" Margin="418,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
+        <Label x:Name="labelaSlikaGreska" Content="" Width="229" Margin="497,203,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
+        
+        
         <Label x:Name="labelBoja" Content="BOJA:" HorizontalAlignment="Left" Height="28" Margin="0,140,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
         <ComboBox x:Name="comboBoxBoja" Margin="50,140,464,181">
             <ComboBox.Background>
@@ -91,7 +91,7 @@
                     </ToggleButton>
                     <Separator/>
                     <ComboBox x:Name="cmbFontFamily" Width="125" IsEditable="True" SelectionChanged="cmbFontFamily_SelectionChanged" Margin="0,10,0,17" Height="17" FontSize="10" BorderThickness="2" RenderTransformOrigin="0.181,0.744"/>
-                    <ComboBox x:Name="cmbFontSize" Opacity="1" Width="40" IsReadOnly="False" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" Height="5" Margin="10,4,0,10" FontSize="10" BorderThickness="2" RenderTransformOrigin="0.181,0.744" SelectionChanged="cmbFontSize_SelectionChanged">
+                    <ComboBox x:Name="cmbFontSize" Opacity="1" Width="40" IsReadOnly="False" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" Height="5" Margin="10,4,0,10" FontSize="10" BorderThickness="2" RenderTransformOrigin="0.181,0.744">
 
                     </ComboBox>
                     <Button x:Name="btnColor" Content="A" Click="btnColor_Click" Width="20" Height="25" RenderTransformOrigin="-0.914,-0.855" Margin="10,0,0,7.4" FontWeight="Bold" Background="Gray"/>

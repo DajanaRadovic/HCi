@@ -26,6 +26,7 @@ namespace CMS
         private static readonly string korisnik = "Dajana";
         private static readonly string sifra = "Radovic";
         private static  string tipKorisnika;
+       
 
         public static string Admin => admin;
 
@@ -106,6 +107,8 @@ namespace CMS
                     LogIn.TipKorisnika = LogIn.Admin;
                     TabelarniPrikaz tabelarniPrikaz = new TabelarniPrikaz();
                     tabelarniPrikaz.ShowDialog();
+                    TextBoxUserName.Text = "";
+                    BoxPassword.Password = "";
                 }
                 else if (TextBoxUserName.Text == LogIn.Korisnik && BoxPassword.Password == LogIn.Sifra)
                 {

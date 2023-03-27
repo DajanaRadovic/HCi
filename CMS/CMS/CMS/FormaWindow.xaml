@@ -28,7 +28,6 @@
         <Label x:Name="labelaMetalGreska" Content="" Width="229" Margin="50,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
        <!-- <Label x:Name="labelDatum" Content="DATUM:" HorizontalAlignment="Left" Height="28" Margin="413,198,0,0" VerticalAlignment="Top" Width="116" FontWeight="Bold"/>
         <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Height="28" Margin="503,204,0,0" VerticalAlignment="Top" Width="116" />-->
-        <Label x:Name="labelaDateGreska" Content="" Width="229" Margin="418,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="27" FontSize="10"/>
         <Label x:Name="labelBoja" Content="BOJA:" HorizontalAlignment="Left" Height="28" Margin="0,140,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold"/>
         <ComboBox x:Name="comboBoxBoja" Margin="50,140,464,181">
             <ComboBox.Background>
@@ -59,6 +58,8 @@
         <TextBox x:Name="textBoxBrend" HorizontalAlignment="Left" Height="28" Margin="50,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="229" GotFocus="textBoxId_GotFocus" LostFocus="textBoxId_LostFocus" Background="#FFDDDADA"/>
         <Label x:Name="labelaBrendGreska" Content="" Width="129" Margin="0,197,330,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10"/>
         <Label x:Name="Opis" Content="OPIS:"  HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="74" FontWeight="Bold"/>
+        <Label x:Name="labelaSlikaGreska" Content="" Width="229" Margin="0,203,17,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="27" FontSize="10" RenderTransformOrigin="0.501,0.5"/>
+
 
         <Canvas Width="230" Height="200" Margin="49,256,466,44.8" Grid.RowSpan="2">
             <DockPanel Width="421" Height="234" Grid.RowSpan="2" Canvas.Left="-38" Canvas.Top="-22">

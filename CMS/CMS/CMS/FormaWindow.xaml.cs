@@ -40,6 +40,9 @@ namespace CMS
 
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f=>f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+
+
+
             WordNumber.Text = "0";
             DataContext = this;
             rtbEditor.Focus();
@@ -73,13 +76,28 @@ namespace CMS
                 result = false;
                 labelaIdGreska.Content = "Polje ne smije da bude prazno!";
                 textBoxId.BorderBrush = Brushes.Red;
-            } else if(Convert.ToInt32(textBoxId.Text) < 0){
-                labelaIdGreska.Content = "Ne smije da bude negativna vrijednost!";
-                
             }
-            else {
+            
+            else
+            {
                 labelaIdGreska.Content = "";
                 textBoxId.BorderBrush = Brushes.Gray;
+                try
+                {
+                    Int32.Parse(textBoxId.Text.Trim());
+                    if (Int32.Parse(textBoxId.Text.Trim()) < 0) {
+                        result = false;
+                        textBoxId.BorderBrush = Brushes.Red;
+                        textBoxId.BorderThickness = new Thickness(2);
+                        System.Windows.MessageBox.Show("ID ne smije da bude negativna vrijednost!");
+                    }
+                }
+                catch (Exception exc) {
+                    textBoxId.BorderBrush = Brushes.Red;
+                    textBoxId.BorderThickness = new Thickness(2);
+                    System.Windows.MessageBox.Show("Unijeta vrijednost nije validna!");
+                    result = false;
+                }
             }
 
             if (comboBoxMetal.SelectedItem == null)
@@ -105,6 +123,17 @@ namespace CMS
             {
                 labelaBojaGreska.Content = "";
                 comboBoxBoja.BorderBrush = Brushes.Gray;
+
+            }
+            if (textBoxBrend.Text.Trim().Equals(""))
+            {
+                result = false;
+                labelaBrendGreska.Content = "Popunite polje!";
+                textBoxBrend.BorderBrush = Brushes.Red;
+            }
+            else {
+                labelaBrendGreska.Content = "";
+                textBoxBrend.BorderBrush = Brushes.Gray;
             }
             /*
             if (DatePicker.SelectedDate == null)
@@ -144,6 +173,16 @@ namespace CMS
                 ComboBoxCena.BorderBrush = Brushes.Gray;
                
             }
+            if (image.Source == null)
+            {
+                result = false;
+                labelaSlikaGreska.Content = "Dodajte sliku!";
+                buttonSlika.BorderBrush = Brushes.Red;
+            }
+            else {
+                labelaSlikaGreska.Content = "";
+                buttonSlika.BorderBrush = Brushes.Gray;
+            }
             foreach (Prsten p in TabelarniPrikaz.Prstenovi)
             {
                 if (textBoxId.Text.Trim().ToUpper() == p.Id.ToString().ToUpper())
@@ -153,23 +192,30 @@ namespace CMS
                     System.Windows.MessageBox.Show("Ovaj prsten već postoji!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            
 
             return result;
         }
 
         private void DugmeZaSlanje_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (validate())
             {
-                
-                    TabelarniPrikaz.Prstenovi.Add(new Prsten(Convert.ToInt32(textBoxId.Text), comboBoxMetal.SelectedValue.ToString(), comboBoxBoja.SelectedValue.ToString(), DateTime.Now, comboBoxOblikKamena.SelectedValue.ToString(), ComboBoxCena.SelectedValue.ToString(), image.Source.ToString(), textBoxBrend.Text, true));
-               
+
+                string fileName = "dajana" + textBoxId.Text + ".rtf";
+                FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                range.Save(fileStream, System.Windows.DataFormats.Rtf);
+                fileStream.Close();
+                TabelarniPrikaz.Prstenovi.Add(new Prsten(Convert.ToInt32(textBoxId.Text), comboBoxMetal.SelectedValue.ToString(), comboBoxBoja.SelectedValue.ToString(), DateTime.Now, comboBoxOblikKamena.SelectedValue.ToString(), ComboBoxCena.SelectedValue.ToString(), image.Source.ToString(), textBoxBrend.Text, fileStream.Name, true));
                 this.Close();
+
             }
-           /* else {
-                MessageBox.Show("Polja nisu dobro popunjena!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            
+            /* else {
+                 MessageBox.Show("Polja nisu dobro popunjena!", "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+             }*/
         }
 
         private void buttonSlika_Click(object sender, RoutedEventArgs e)

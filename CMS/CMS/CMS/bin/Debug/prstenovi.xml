@@ -1,25 +1,2 @@
 <?xml version="1.0"?>
-<ArrayOfPrsten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Prsten>
-    <Id>3</Id>
-    <Metal>Srebro</Metal>
-    <Boja>Zuto</Boja>
-    <Datum>2023-03-25T21:45:57.7705596+01:00</Datum>
-    <Oblik>Ovalan</Oblik>
-    <Cena>10.000-15.000</Cena>
-    <Slika>file:///C:/Users/Milijana/Downloads/galerija_slika4.JPG</Slika>
-    <Brend>sds</Brend>
-    <isChecked>true</isChecked>
-  </Prsten>
-  <Prsten>
-    <Id>4</Id>
-    <Metal>Srebro</Metal>
-    <Boja>Zuto</Boja>
-    <Datum>2023-03-25T21:54:38.1359842+01:00</Datum>
-    <Oblik>Ovalan</Oblik>
-    <Cena>5.000-10.000</Cena>
-    <Slika>file:///C:/Users/Milijana/Downloads/galerija_slika3.JPG</Slika>
-    <Brend>sds</Brend>
-    <isChecked>true</isChecked>
-  </Prsten>
-</ArrayOfPrsten>
+<ArrayOfPrsten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />

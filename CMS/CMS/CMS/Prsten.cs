@@ -18,11 +18,12 @@ namespace CMS
         public string Cena { get; set; }
         public string Slika { get; set; }
         public string Brend { get; set; }
+        public string Opis { get; set; }
         public bool isChecked { get; set; }
         
        
 
-        public Prsten(int id, string metal, string boja, DateTime datum, string oblik, string cena, string slika, string brend, bool isChecked)
+        public Prsten(int id, string metal, string boja, DateTime datum, string oblik, string cena, string slika, string brend, string opis, bool isChecked)
         {
             this.Id = id;
             this.Metal = metal;
@@ -32,7 +33,9 @@ namespace CMS
             this.Cena = cena;
             this.Slika = slika;
             this.Brend = brend;
+            this.Opis = opis;
             this.isChecked = isChecked;
+           
             
         }
 

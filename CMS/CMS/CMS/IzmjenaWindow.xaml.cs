@@ -36,13 +36,24 @@ namespace CMS
             comboBoxBoja.ItemsSource = Liste.boje;
             comboBoxOblikKamena.ItemsSource = Liste.oblici;
             ComboBoxCena.ItemsSource = Liste.cene;
+
+            cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+            cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+            WordNumber.Text = "0";
+            DataContext = this;
+            rtbEditor.Focus();
+            
+
         }
         public IzmjenaWindow(Prsten prsten) {
             InitializeComponent();
             comboBoxMetal.ItemsSource = Liste.metali;
             comboBoxBoja.ItemsSource = Liste.boje;
             comboBoxOblikKamena.ItemsSource = Liste.oblici;
-
+            ComboBoxCena.ItemsSource = Liste.cene;
+            cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+            cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+          
             index = TabelarniPrikaz.Prstenovi.IndexOf(prsten);
             stari = prsten;
 
@@ -50,12 +61,21 @@ namespace CMS
             textBoxId.Text = Convert.ToString(prsten.Id);
             comboBoxMetal.SelectedValue = prsten.Metal;
             comboBoxBoja.SelectedValue = prsten.Boja;
-            DatePicker.SelectedDate = prsten.Datum;
+           // DatePicker.SelectedDate = prsten.Datum;
             comboBoxOblikKamena.SelectedValue = prsten.Oblik;
             ComboBoxCena.SelectedValue = prsten.Cena;
             image.Source = new BitmapImage(new Uri(prsten.Slika));
             textBoxBrend.Text = prsten.Brend;
-            
+            ComboBoxCena.SelectedValue = prsten.Cena;
+            /*string opisText = prsten.Opis;
+            TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            range.Text = opisText;*/
+
+            FileStream fileStream = new FileStream(prsten.Opis, FileMode.Open);
+            TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            range.Load(fileStream, System.Windows.DataFormats.Rtf);
+            fileStream.Close();
+
 
         }
 
@@ -72,6 +92,35 @@ namespace CMS
             {
                 labelaIdGreska.Content = "";
                 textBoxId.BorderBrush = Brushes.Gray;
+                try
+                {
+                    Int32.Parse(textBoxId.Text.Trim());
+                    if (Int32.Parse(textBoxId.Text.Trim()) < 0)
+                    {
+                        result = false;
+                        textBoxId.BorderBrush = Brushes.Red;
+                        textBoxId.BorderThickness = new Thickness(2);
+                        System.Windows.MessageBox.Show("ID ne smije da bude negativna vrijednost!");
+                    }
+                }
+                catch (Exception exc)
+                {
+                    textBoxId.BorderBrush = Brushes.Red;
+                    textBoxId.BorderThickness = new Thickness(2);
+                    System.Windows.MessageBox.Show("Unijeta vrijednost nije validna!");
+                    result = false;
+                }
+            }
+            if (image.Source == null)
+            {
+                result = false;
+                labelaSlikaGreska.Content = "Dodajte sliku!";
+                buttonSlika.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                labelaSlikaGreska.Content = "";
+                buttonSlika.BorderBrush = Brushes.Gray;
             }
 
             if (comboBoxMetal.SelectedItem == null)
@@ -99,7 +148,7 @@ namespace CMS
                 labelaBojaGreska.Content = "";
                 comboBoxBoja.BorderBrush = Brushes.Gray;
             }
-
+            /*
             if (DatePicker.SelectedDate == null)
             {
                 result = false;
@@ -111,7 +160,7 @@ namespace CMS
             {
                 labelaDateGreska.Content = "";
                 DatePicker.BorderBrush = Brushes.Gray;
-            }
+            */
 
             if (comboBoxOblikKamena.SelectedItem == null)
             {
@@ -161,10 +210,17 @@ namespace CMS
                 }
                 if (result == true)
                 {
-                    TabelarniPrikaz.Prstenovi.Insert(index, new Prsten(Convert.ToInt32(textBoxId.Text), comboBoxMetal.SelectedValue.ToString(), comboBoxBoja.SelectedValue.ToString(), DatePicker.SelectedDate.Value, comboBoxOblikKamena.SelectedValue.ToString(), ComboBoxCena.SelectedValue.ToString(),image.Source.ToString(), textBoxBrend.Text, true));
+                    string fileName = "dajana" + textBoxId.Text + ".rtf";
+                    FileStream fileStream = new FileStream(fileName, FileMode.Create);
+                    TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+                    range.Save(fileStream, System.Windows.DataFormats.Rtf);
+                    fileStream.Close();
+                    TabelarniPrikaz.Prstenovi.Insert(index, new Prsten(Convert.ToInt32(textBoxId.Text), comboBoxMetal.SelectedValue.ToString(), comboBoxBoja.SelectedValue.ToString(), DateTime.Now, comboBoxOblikKamena.SelectedValue.ToString(), ComboBoxCena.SelectedValue.ToString(),image.Source.ToString(), textBoxBrend.Text,fileStream.Name, true));
+              
                     this.Close();
                 }
                 else {
+
                     TabelarniPrikaz.Prstenovi.Insert(index, stari);
                 }
             }
@@ -312,7 +368,7 @@ namespace CMS
                 Int32.Parse(cmbFontSize.Text.Trim());
                 if (Int32.Parse(cmbFontSize.Text.Trim()) < 1000)
                 {
-                    rtbEditor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, cmbFontSize.Text);
+                    rtbEditor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.Text);
                 }
                 rtbEditor.Focus();
             }
@@ -320,7 +376,7 @@ namespace CMS
             {
                 System.Windows.MessageBox.Show("Nije validno!", "CMS", MessageBoxButton.OK, MessageBoxImage.Warning);
                 rtbEditor.Focus();
-                object temp = rtbEditor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+                object temp = rtbEditor.Selection.GetPropertyValue(Inline.FontSizeProperty);
                 try
                 {
                     Int32.Parse(temp.ToString());
@@ -335,16 +391,6 @@ namespace CMS
 
             }
 
-        }
-
-        private void cmbFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cmbFontFamily.SelectedItem != null)
-            {
-                rtbEditor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, cmbFontFamily.SelectedItem);
-
-            }
-            rtbEditor.Focus();
         }
 
         private void btnColor_Click(object sender, RoutedEventArgs e)
@@ -444,6 +490,6 @@ namespace CMS
             }
         }
 
-        
+      
     }
 }
