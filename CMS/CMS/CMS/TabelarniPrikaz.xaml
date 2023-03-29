@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CMS"
         mc:Ignorable="d"
-        Title="TabelarniPrikaz" Height="550" Width="700" Closing="save">
+        Title="TabelarniPrikaz" Height="450" Width="800" Closing="save">
     <Window.Background>
-        <ImageBrush ImageSource="prsten.jpg"/>
+        <ImageBrush ImageSource="Images/background5.jpg"/>
     </Window.Background>
     <Grid>
-        <TextBlock Text="PRIKAZIVANJE PRSTENOVA" Margin="0 10 0 400" FontSize="22" FontFamily="Times New Roman" VerticalAlignment="Center" HorizontalAlignment="Center" Height="69" Width="324"/>
-        <DataGrid x:Name="Prikaz" ItemsSource="{Binding Prstenovi}" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="695"  SelectionMode="Single" Opacity="1" Background="{x:Null}" Margin="0 100 0 0" IsReadOnly="True">
+        <TextBlock Text="Prikazivanje prstenova" Margin="260,32,267.6,349" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Height="39" Width="264" FontFamily="Segoe Print"/>
+        <DataGrid x:Name="Prikaz" ItemsSource="{Binding Prstenovi}" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="685"  SelectionMode="Single" Opacity="1" Background="#7F000000" Margin="52,131,0,0" IsReadOnly="True" BorderBrush="#7F000000" RowBackground="#66FFFFFF">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#FFEDD3D3"/>
+                            <Setter Property="Background" Value="#FFF3CFA3"/>
                             <Setter Property="BorderBrush" Value="White"/>
                         </Trigger>
                     </Style.Triggers>
@@ -71,8 +71,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="DugmeZaDodavanje" Click="DugmeZaDodavanje_Click" Content="Dodaj" Width="70" Height="50" Margin="241,429,36.2,33" Loaded="DugmeZaDodavanje_Loaded"/>
-        <Button x:Name="DugmeZaIzlaz" Click="DugmeZaIzlaz_Click"  Content="Izlaz" Width="70" Height="50" Margin="136,429,141.2,33"/>
-        <Button x:Name="DugmeZaBrisanje" Click="DugmeZaBrisanje_Click"  Content="Obrisi" Width="70" Height="50" Margin="38,429,239.2,33" Loaded="DugmeZaBrisanje_Loaded"/>
+        <Button x:Name="DugmeZaDodavanje" Click="DugmeZaDodavanje_Click" Content="Dodaj" Margin="52,90,654.6,294" Loaded="DugmeZaDodavanje_Loaded" FontFamily="Segoe Print" Background="#FFE4B986"/>
+        <Button x:Name="DugmeZaIzlaz" Click="DugmeZaIzlaz_Click"  Content="Izlaz" Margin="244,358,285.6,26" FontFamily="Segoe Print"/>
+        <Button x:Name="DugmeZaBrisanje" Click="DugmeZaBrisanje_Click"  Content="Obrisi" Margin="144,90,562.6,294" Loaded="DugmeZaBrisanje_Loaded" FontFamily="Segoe Print"/>
     </Grid>
 </Window>

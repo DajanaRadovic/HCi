@@ -7,25 +7,36 @@
         mc:Ignorable="d"
         Title="PrikaziWindow" Height="500" Width="600">
     <Window.Background>
-        <ImageBrush ImageSource="prsten.jpg"/>
+        <ImageBrush ImageSource="Images/background5.jpg"/>
     </Window.Background>
     <Grid>
-        <Image x:Name="image" Stretch="UniformToFill" HorizontalAlignment="Left" Height="184" Margin="199,30,0,0" VerticalAlignment="Top" Width="225"/>
-        <Label x:Name="id" Content="ID:" FontSize="14" FontStyle="Italic" Margin="11,5,0,421.4" HorizontalAlignment="Left"/>
-        <Label x:Name="labelId" Content="ID:" HorizontalAlignment="Left" Margin="93,19,0,411.4" Width="42"/>
-        <Label x:Name="Oblik" Content="OBLIK:" FontSize="14" FontStyle="Italic" Margin="10,172,506.6,263.4"/>
-        <Label x:Name="Cena" Content="CENA:" FontSize="14" FontStyle="Italic" Margin="10,219,506.6,216.4"/>
-        <Label x:Name="Datum" Content="DATUM:" FontSize="14" FontStyle="Italic" Margin="11,263,485.6,172.4"/>
-        <Label x:Name="BOJA" Content="METAL:" FontSize="14" FontStyle="Italic" Margin="10,49,505.6,387.4"/>
-        <Label x:Name="labeMetal" Content="METAL:" HorizontalAlignment="Left" Margin="88,49,0,383.4" Width="75"/>
-        <Label x:Name="Boja" Content="BOJA:" FontSize="14" FontStyle="Italic" Margin="10,91,520.6,343.4"/>
-        <Label x:Name="Brend" Content="BREND:" FontSize="14" FontStyle="Italic" Margin="10,131,505.6,303.4"/>
-        <Label x:Name="labelBoja" Content="BOJA:" HorizontalAlignment="Left" Margin="88,100,0,335.4" Width="196"/>
-        <Label x:Name="labelBrend" Content="BREND:" HorizontalAlignment="Left" Margin="88,140,0,295.4" Width="196"/>
-        <Label x:Name="labelOblik" Content="OBLIK:" HorizontalAlignment="Left" Margin="85,174,0,256.4" RenderTransformOrigin="1.013,2.047" Width="199"/>
-        <Label x:Name="labelCena" Content="CENA:" HorizontalAlignment="Left" Margin="85,219,0,216.4" RenderTransformOrigin="1.013,2.047" Width="196"/>
-       
-        <Label x:Name="labelDatum" Content="DATUM:" HorizontalAlignment="Left" Margin="85,263,0,167.4" RenderTransformOrigin="1.013,2.047" Width="196"/>
+        <Rectangle Fill="#99000000" Margin="36,54,280.6,0" Height="361" VerticalAlignment="Top" RadiusX="10" RadiusY="10" />
+        <Image x:Name="image" Stretch="UniformToFill" HorizontalAlignment="Left" Height="184" Margin="318,54,0,0" VerticalAlignment="Top" Width="225"/>
+        <Label x:Name="id" Content="ID:" FontSize="14" Margin="56,62,0,364.4" HorizontalAlignment="Left" FontFamily="Segoe Print" Width="97" Foreground="White"/>
+        <Label x:Name="labelId" Content="ID:" HorizontalAlignment="Left" Margin="158,71,0,359.4" Width="133" Foreground="White"/>
+        <Label x:Name="Oblik" Content="OBLIK:" FontSize="14" FontFamily="Segoe Print" Margin="56,264,440.6,171.4" Foreground="White"/>
+        <Label x:Name="Cena" Content="CENA:" FontSize="14" FontFamily="Segoe Print" Margin="59,312,451.6,120.4" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.095"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="Datum" Content="DATUM:" FontSize="14" FontFamily="Segoe Print" Margin="56,358,440.6,74.4" Foreground="White"/>
+        <Label x:Name="BOJA" Content="METAL:" FontSize="14" FontFamily="Segoe Print" Margin="56,111,440.6,321.4" Foreground="White"/>
+        <Label x:Name="labeMetal" Content="METAL:" HorizontalAlignment="Left" Margin="157,116,0,316.4" Width="134" Foreground="White"/>
+        <Label x:Name="Boja" Content="BOJA:" FontSize="14" FontFamily="Segoe Print" Margin="56,163,440.6,271.4" Foreground="White"/>
+        <Label x:Name="Brend" Content="BREND:" FontSize="14" FontFamily="Segoe Print" Margin="56,213,440.6,221.4" Foreground="White"/>
+        <Label x:Name="labelBoja" Content="BOJA:" HorizontalAlignment="Left" Margin="158,164,0,271.4" Width="133" Foreground="White"/>
+        <Label x:Name="labelBrend" Content="BREND:" HorizontalAlignment="Left" Margin="158,213,0,221.4" Width="134" Foreground="White"/>
+        <Label x:Name="labelOblik" Content="OBLIK:" HorizontalAlignment="Left" Margin="158,264,0,171.4" RenderTransformOrigin="1.013,2.047" Width="134" Foreground="White"/>
+        <Label x:Name="labelCena" Content="CENA:" HorizontalAlignment="Left" Margin="157,308,0,127.4" RenderTransformOrigin="1.013,2.047" Width="134" Foreground="White"/>
+
+        <Label x:Name="labelDatum" Content="DATUM:" HorizontalAlignment="Left" Margin="158,358,0,74.4" RenderTransformOrigin="1.013,2.047" Width="134" Foreground="White"/>
+        <TextBlock Text="Detaljan prikaz" Margin="157,10,203.6,421.4" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" Height="39" Width="233" FontFamily="Segoe Print"/>
 
 
 

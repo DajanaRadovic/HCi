@@ -7,22 +7,21 @@
         mc:Ignorable="d"
        Title="MainWindow" Height="450" Width="800">
     <Window.Background>
-        <ImageBrush ImageSource="prsten6.jpg"/>
+        <ImageBrush ImageSource="Images/background2.jpg"/>
     </Window.Background>
 
 
-    <Grid Height="350" Width="300" Margin="0,40,410,40" Background="#7F000000">
-
-        <Image Margin="10,10,10,280" Source="log1.jpg" Height="60"/>
-        <TextBlock HorizontalAlignment="Center" Text="Log in" FontWeight="Bold" FontSize="18" Margin="120,75,110,242" Width="70"/>
-        <TextBlock HorizontalAlignment="Center" Text="User name:" FontSize="12" Margin="50,117,181,217" Width="69"/>
-        <TextBox x:Name="TextBoxUserName" Width="200" Height="30" Margin="50,138,50,182" TextWrapping="Wrap" Text="" GotFocus="TextBoxUserName_GotFocus" LostFocus="TextBoxUserName_LostFocus"/>
+    <Grid Height="350" Width="300" Margin="0,40,410,40">
+        <Rectangle Fill="#99000000" Margin="10,10,10,0" Height="330" VerticalAlignment="Top" RadiusX="10" RadiusY="10" />
+        <TextBlock HorizontalAlignment="Center" Text="Login" FontWeight="Bold" FontSize="24" Margin="112,21,118,288" Width="70" Foreground="White" FontFamily="Segoe Print"/>
+        <TextBlock HorizontalAlignment="Center" Text="User name:" FontSize="12" Margin="50,78,181,255" Width="69" Foreground="White" FontFamily="Segoe Print"/>
+        <TextBox x:Name="TextBoxUserName" FontSize="16" Width="200" Height="30" Margin="50,100,50,220" TextWrapping="Wrap" Text="" GotFocus="TextBoxUserName_GotFocus" LostFocus="TextBoxUserName_LostFocus"/>
         <Label x:Name="labelaUserGreska" Content="" Width="200" Margin="50,168,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="26" FontSize="10"/>
-        <TextBlock HorizontalAlignment="Center" Text="Password:" FontSize="12" Margin="50,194,181,138" Width="69"/>
-        <PasswordBox x:Name="BoxPassword" Width="200" Height="30" Margin="50,212,50,108" GotFocus="BoxPassword_GotFocus" LostFocus="BoxPassword_LostFocus"/>
+        <TextBlock HorizontalAlignment="Center" Text="Password:" FontSize="12" Margin="50,139,181,195" Width="69" Foreground="White" FontFamily="Segoe Print"/>
+        <PasswordBox x:Name="BoxPassword" FontSize="16" Width="200" Height="30" Margin="50,160" GotFocus="BoxPassword_GotFocus" LostFocus="BoxPassword_LostFocus"/>
         <Label x:Name="labelaPasswordGreska" Content="" Width="200" Margin="50,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="28"/>
-        <Button x:Name="ButtonLogIn" Margin="61,280,169,30" Width="70" Height="40" Content="LOG IN" Background ="LightGray" Click="ButtonLogIn_Click"/>
-        <Button x:Name="ButtonIzlaz" Margin="161,280,69,30" Width="70" Height="40" Content="EXIT" Background ="LightGray" Click="ButtonIzlaz_Click"/>
+        <Button x:Name="ButtonLogIn" Margin="50,222,50,93" Content="LOGIN" Background ="#FFE4B986" Click="ButtonLogIn_Click" FontWeight="Bold" Foreground="White" FontFamily="Segoe Print"/>
+        <Button x:Name="ButtonIzlaz" Margin="50,262,50,52" Content="EXIT" Background ="#FF999999" Click="ButtonIzlaz_Click" FontWeight="Bold" Foreground="White" BorderBrush="#FF636363" FontFamily="Segoe Print"/>
 
     </Grid>
 

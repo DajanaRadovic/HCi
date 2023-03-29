@@ -162,19 +162,6 @@ namespace CMS
                 labelaOblikKamenaGreska.Content = "";
                 comboBoxOblikKamena.BorderBrush = Brushes.Gray;
             }
-            TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-            if (range.Text.Trim().Length == 0)
-            {
-                result = false;
-                rtbEditor.BorderBrush = Brushes.Red;
-                labelaRtbGreska.Content = "Popunite polje!";
-                labelaRtbGreska.Foreground = Brushes.Red;
-            }
-            else
-            {
-                labelaRtbGreska.Content = "";
-                rtbEditor.BorderBrush = Brushes.Gray;
-            }
 
             if (ComboBoxCena.SelectedItem == null)
             {

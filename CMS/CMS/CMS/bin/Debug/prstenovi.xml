@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <ArrayOfPrsten xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Prsten>
-    <Id>55</Id>
-    <Metal>Srebro</Metal>
-    <Boja>Belo Zuto</Boja>
-    <Datum>2023-03-27T21:39:47.2664915+02:00</Datum>
-    <Oblik>Ovalan</Oblik>
-    <Cena>10.000-15.000</Cena>
-    <Slika>file:///C:/Users/Milijana/Desktop/CMS/prsten11.jpg</Slika>
-    <Brend>jhjhj</Brend>
-    <Opis>C:\Users\Milijana\Desktop\CMS\CMS\CMS\bin\Debug\dajana55.rtf</Opis>
+    <Id>22</Id>
+    <Metal>Platina</Metal>
+    <Boja>Zuto</Boja>
+    <Datum>2023-03-28T11:57:19.9283035+02:00</Datum>
+    <Oblik>Okrugli</Oblik>
+    <Cena>5.000-10.000</Cena>
+    <Slika>file:///C:/Users/Milijana/Desktop/CMS/prsten.jpg</Slika>
+    <Brend>dsd</Brend>
+    <Opis>C:\Users\Milijana\Desktop\CMS\CMS\CMS\bin\Debug\dajana22.rtf</Opis>
     <isChecked>true</isChecked>
   </Prsten>
 </ArrayOfPrsten>
